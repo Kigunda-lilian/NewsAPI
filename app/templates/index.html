@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{%block content%}
+<p>news</p>
+{% for articles in articles %}
+        <div class="col-md-3 ">
+            <div class="card mt-2 d-flex flex-wrap shadow-sm bg-body rounded h-100">
+                <img src="{{articles.urlToImage}}" width="260rem">
+                <div class="card-body ">
+                    <h4 class="card-title fw-bold">{{articles.title}}</h4>
+                    <h5 class="card-title">{{articles.description}}</h5>
+                    <small class="card-title text-muted">Date Published:<br>{{articles.publishedAt}}</small>
+                </div>
+                <div class="card-footer "><button class="btn-light"><a rel="stylesheet" href="{{articles.url}}" >Read more</a></button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+{%endblock%}

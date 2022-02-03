@@ -18,7 +18,7 @@ def fetch_news():
     
     with urllib.request.urlopen(fetch_news_url) as url:
         our_news_data =url.read()
-        our_news_response =json.loads(our_news_data)_
+        our_news_response =json.loads(our_news_data)
         
         our_results=None
         
@@ -26,7 +26,7 @@ def fetch_news():
             our_results_list =our_news_response['articles']
             #print (our_results_list)
             our_results = process_news_results(our_results_list)
-            
+            print(our_results)
             
             
     return our_results
@@ -38,7 +38,7 @@ def process_news_results(results_list):
         description= results_item.get('description')
         urlToImage= results_item.get('urlToImage')
         content= results_item.get('content')
-        publishedAt = results_item('publishedAt')
+        publishedAt = results_item.get('publishedAt')
         
         
         results_object = News(title,description,urlToImage,content,publishedAt) 
